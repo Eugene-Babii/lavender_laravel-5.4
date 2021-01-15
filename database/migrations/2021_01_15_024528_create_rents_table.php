@@ -18,10 +18,10 @@ class CreateRentsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('Users')->onDelete('cascade');
             $table->date('date');
-            $table->time('timebegin');
-            $table->time('timeend');
+            $table->time('time_begin');
+            $table->time('time_end');
             $table->double('sum');
-            $table->boolean('ispaid');
+            $table->boolean('is_paid');
             $table->timestamps();
         });
     }
