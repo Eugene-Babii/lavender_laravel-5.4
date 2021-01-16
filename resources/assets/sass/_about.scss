@@ -1,0 +1,18 @@
+.about-heading {
+    @media (min-width: 992px) {
+        .about-heading-img {
+            position: relative;
+            z-index: 0;
+        }
+
+        .about-heading-content {
+            margin-top: -5rem;
+            position: relative;
+            z-index: 1;
+        }
+    }
+}
+
+.lobster {
+    font-family: 'Lobster', cursive;
+}
