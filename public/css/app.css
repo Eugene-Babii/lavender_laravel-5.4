@@ -12047,6 +12047,10 @@ p {
   place-items: center;
 }
 
+.lobster {
+  font-family: 'Lobster', cursive;
+}
+
 #mainNav {
   background-color: rgba(126, 23, 154, 0.9);
   font-family: 'Raleway';
@@ -12057,7 +12061,7 @@ p {
 }
 
 #mainNav .navbar-nav .nav-item .nav-link {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(112, 202, 239, 0.7);
   font-weight: 800;
 }
 
@@ -12071,7 +12075,7 @@ p {
   }
 
   #mainNav .navbar-nav .nav-item .nav-link:hover {
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(112, 202, 239, 0.4);
   }
 
   #mainNav .navbar-nav .nav-item.active .nav-link:hover {
@@ -12154,10 +12158,6 @@ p {
     position: relative;
     z-index: 1;
   }
-}
-
-.lobster {
-  font-family: 'Lobster', cursive;
 }
 
 @media (min-width: 992px) {

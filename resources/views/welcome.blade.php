@@ -1,6 +1,8 @@
 @extends('layouts.main')
 
 @section('content')
+
+<!-- Infoblock -->
 <section class="page-section">
     <div class="container">
         <div class="card mb-3" style="border: 2px solid #7e179a">
@@ -20,16 +22,16 @@
                         <p> Бронирование только онлайн после 100% предоплаты. </p>
                         <p> Перед бронированием просим ознакомиться с правилами аренды полюшка! </p>
                         <div class="intro-button mx-auto">
-                            <a class="btn btn-secondary text-white btn-signup" href="home">Записаться</a>
+                            <a class="btn btn-secondary text-primary btn-signup lobster" href="home">Бронировать</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </section>
 
+<!-- Slider -->
 <section class="page-section">
     <div class="container">
         <div class="row">

@@ -4,6 +4,9 @@ body {
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
+
+    // height: 100%;
+    // position:relative;
 }
 
 h1,
@@ -82,3 +85,21 @@ p {
     display: grid;
     place-items: center;
 }
+
+.lobster {
+    font-family: 'Lobster', cursive;
+}
+
+// .wrapper {
+//     display: flex;
+//     flex-direction: column;
+//     min-height: 100%;
+// }
+
+// .content {
+//     flex: 1 0 auto;
+// }
+
+// .footer {
+//     flex: 0 0 auto;
+// }

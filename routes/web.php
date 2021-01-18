@@ -14,12 +14,22 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', 'RentController@index');
+
+Route::get('/rules', function () {
+    return view('rules');
 });
 
-Route::get('hello', function () {
-    return "Hello world!";
+Route::get('/price', function () {
+    return view('price');
+});
+
+Route::get('/contacts', function () {
+    return view('contacts');
 });
 
 Auth::routes();
