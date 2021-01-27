@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', 'RentController@index');
 
+Route::get('/booking', 'RentController@booking');
+
 Route::get('/rules', function () {
     return view('rules');
 });

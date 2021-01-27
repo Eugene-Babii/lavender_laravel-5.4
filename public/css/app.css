@@ -11966,8 +11966,8 @@ a.text-dark:focus {
 
 body {
   font-family: 'Lora';
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(47, 23, 15, 0.65)), to(rgba(47, 23, 15, 0.65))), url(/images/body-bg.jpg?24d1cb5495b7696ce4b4da1391a7e7e6);
-  background-image: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url(/images/body-bg.jpg?24d1cb5495b7696ce4b4da1391a7e7e6);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(47, 23, 15, 0.65)), to(rgba(47, 23, 15, 0.65))), url(/images/body-bg.jpg?ec363c39ced9bf121792495d68bfe748);
+  background-image: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url(/images/body-bg.jpg?ec363c39ced9bf121792495d68bfe748);
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
@@ -12049,6 +12049,11 @@ p {
 
 .lobster {
   font-family: 'Lobster', cursive;
+}
+
+.parent {
+  display: grid;
+  place-items: center;
 }
 
 #mainNav {

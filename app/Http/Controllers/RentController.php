@@ -8,6 +8,11 @@ class RentController extends Controller
 {
     public function index()
     {
-        return view('rent.index');
+        return view('main');
+    }
+
+    public function booking()
+    {
+        return view('booking');
     }
 }

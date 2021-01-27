@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.layout')
 
 @section('content')
 
@@ -13,16 +13,14 @@
                 <div class="col-md-7">
                     <div class="card-body text-center">
                         <h5 class="card-title font-weight-bolder">Аренда лавандового полюшка</h5>
-                        <p class="mb-3"> В 2020 году открывается аренда лавандового полюшка для фотосеcсий.</p>
+                        <p class="mb-3"> В 2021 году открывается аренда лавандового полюшка для фотосеcсий.</p>
                         <p>Попасть на цветущее лавандовое полюшко можно
-                            только по предварительному бронированию. </p>
+                            по предварительному бронированию. </p>
                         <p> Бронирование открывается за 2-3 недели до начала цветения лаванды. </p>
-                        <p> Стоимость аренды полюшка - 500 грн/час. </p>
-                        <p> Режим роботи поля: з 5.00 до 21.00. </p>
-                        <p> Бронирование только онлайн после 100% предоплаты. </p>
+                        <p> Режим роботи поля: з 5.00 до 21.00. </p>                        
                         <p> Перед бронированием просим ознакомиться с правилами аренды полюшка! </p>
                         <div class="intro-button mx-auto">
-                            <a class="btn btn-secondary text-primary btn-signup lobster" href="home">Бронировать</a>
+                            <a class="btn btn-secondary text-primary btn-signup lobster" href="booking">Бронировать</a>
                         </div>
                     </div>
                 </div>
