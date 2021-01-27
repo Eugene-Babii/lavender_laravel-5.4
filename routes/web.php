@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,10 +14,26 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', 'RentController@index');
+
+Route::get('/booking', 'RentController@booking');
+
+Route::get('/rules', function () {
+    return view('rules');
 });
 
-Route::get('hello', function () {
-    return "Hello world!";
+Route::get('/price', function () {
+    return view('price');
 });
+
+Route::get('/contacts', function () {
+    return view('contacts');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
