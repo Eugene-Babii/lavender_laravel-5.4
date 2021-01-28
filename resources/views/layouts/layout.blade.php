@@ -31,20 +31,9 @@
     <!-- <link href="../../public/css/app.css" rel="stylesheet"> -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    <script type="text/javascript">
-        $(function() {
 
-            $('#datepicker').datepicker();
-
-        });
-    </script>
 
     <script type="text/javascript">
-        // import $ from 'jquery';
-        // window.$ = window.jQuery = $;
-
-        // import 'jquery-ui/ui/widgets/datepicker.js';
-        /* Локализация datepicker */
         $.datepicker.regional['ru'] = {
             closeText: 'Закрыть',
             prevText: 'Предыдущий',
@@ -63,16 +52,6 @@
             yearSuffix: ''
         };
         $.datepicker.setDefaults($.datepicker.regional['ru']);
-
-
-        $('#datepicker').datepicker({
-            minDate: 0
-        });
-
-        // $( ".radio-time" ).checkboxradio();
-
-        $("#timebegin").selectmenu();
-        $("#timeend").selectmenu();
     </script>
 
 </head>
@@ -95,7 +74,11 @@
     @include('layouts.footer')
 
 
-
+    <script type="text/javascript">
+        $('#datepicker').datepicker({
+            minDate: 0
+        });
+    </script>
 </body>
 
 </html>

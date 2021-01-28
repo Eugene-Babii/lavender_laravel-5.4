@@ -33,7 +33,7 @@
                 <!-- <a class="navbar-brand" href="{{ url('/') }}"> -->
                 <!-- {{ config('app.name', 'Лаванда') }} -->
                 <!-- Лаванда -->
-                <!-- </a> --> 
+                <!-- </a> -->
                 <!-- </div> -->
 
                 <!-- <div class="collapse navbar-collapse" id="app-navbar-collapse"> -->
@@ -55,6 +55,7 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
+                            
                             <li>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

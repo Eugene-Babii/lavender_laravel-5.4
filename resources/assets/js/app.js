@@ -23,3 +23,19 @@ const app = new Vue({
 
 
 
+import $ from 'jquery';
+window.$ = window.jQuery = $;
+
+// import 'jquery-ui/ui/widgets/datepicker.js';
+/* Локализация datepicker */
+
+
+
+$('#datepicker').datepicker({
+    minDate: 0
+});
+
+// $(".radio-time").checkboxradio();
+
+// $("#timebegin").selectmenu();
+// $("#timeend").selectmenu();

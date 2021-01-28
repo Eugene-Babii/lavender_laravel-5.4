@@ -12128,10 +12128,10 @@ __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#datepicker').datepicker({
     minDate: 0
 });
 
-// $( ".radio-time" ).checkboxradio();
+// $(".radio-time").checkboxradio();
 
-__WEBPACK_IMPORTED_MODULE_0_jquery___default()("#timebegin").selectmenu();
-__WEBPACK_IMPORTED_MODULE_0_jquery___default()("#timeend").selectmenu();
+// $("#timebegin").selectmenu();
+// $("#timeend").selectmenu();
 
 /***/ }),
 /* 14 */

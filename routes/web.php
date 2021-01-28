@@ -20,8 +20,6 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', 'RentController@index');
 
-Route::get('/booking', 'RentController@booking');
-
 Route::get('/rules', function () {
     return view('rules');
 });
@@ -34,6 +32,16 @@ Route::get('/contacts', function () {
     return view('contacts');
 });
 
+Route::get('/booking', function () {
+    return view('booking');
+})->middleware('auth');
+
+Route::post('/addbooking', 'RentController@addbooking');
+
+Route::get('/cabinet', function () {
+    return view('cabinet');
+})->middleware('auth');
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
