@@ -12048,12 +12048,18 @@ p {
 }
 
 .lobster {
-  font-family: 'Lobster', cursive;
+  font-family: "Lobster", cursive;
 }
 
 .parent {
   display: grid;
   place-items: center;
+}
+
+@media (min-width: 1200px) {
+  .card-body {
+    padding-top: 3rem !important;
+  }
 }
 
 #mainNav {

@@ -7,18 +7,18 @@
     <div class="container">
         <div class="card mb-3" style="border: 2px solid #7e179a">
             <div class="row no-gutters bg-primary">
-                <div class="col-md-5 img-center p-5">
+                <div class="col-md-5 img-center p-4">
                     <img src="/images/purple-flower.jpg" class="card-img round" alt="foto of lavender">
                 </div>
                 <div class="col-md-7">
-                    <div class="card-body text-center">
-                        <h5 class="card-title font-weight-bolder">Аренда лавандового полюшка</h5>
+                    <div class="card-body text-center text-secondary d-flex-column align-items-center justify-content-center mt-auto">
+                        <h5 class="card-title font-weight-bolder lobster">Аренда лавандового полюшка</h5>
                         <p class="mb-3"> В 2021 году открывается аренда лавандового полюшка для фотосеcсий.</p>
                         <p>Попасть на цветущее лавандовое полюшко можно
                             по предварительному бронированию. </p>
                         <p> Бронирование открывается за 2-3 недели до начала цветения лаванды. </p>
                         <p> Режим роботи поля: з 4.00 до 21.00. </p>
-                        <p> Перед бронированием просим ознакомиться с правилами аренды полюшка! </p>
+                        <p> Перед бронированием просим ознакомиться с правилами аренды! </p>
                         <div class="intro-button mx-auto">
                             <a class="btn btn-secondary text-primary btn-signup lobster" href="booking">Бронировать</a>
                         </div>

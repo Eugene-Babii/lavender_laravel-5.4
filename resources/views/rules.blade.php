@@ -2,8 +2,8 @@
 
 @section('content')
 <section class="page-section">
-    <div class="container">
-        <div class="row">
+    <div class="container d-flex align-items-center justify-content-center">
+        <div class="row w-100 no-gutters" style="border: 2px solid #7e179a">
             <div class="col mx-auto">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">

@@ -12097,7 +12097,7 @@ window.Vue = __webpack_require__(37);
 Vue.component('example', __webpack_require__(41));
 
 var app = new Vue({
-    el: '#app'
+  el: '#app'
 });
 
 
@@ -12105,27 +12105,9 @@ window.$ = window.jQuery = __WEBPACK_IMPORTED_MODULE_0_jquery___default.a;
 
 // import 'jquery-ui/ui/widgets/datepicker.js';
 /* Локализация datepicker */
-__WEBPACK_IMPORTED_MODULE_0_jquery___default.a.datepicker.regional['ru'] = {
-    closeText: 'Закрыть',
-    prevText: 'Предыдущий',
-    nextText: 'Следующий',
-    currentText: 'Сегодня',
-    monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-    monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
-    dayNames: ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'],
-    dayNamesShort: ['вск', 'пнд', 'втр', 'срд', 'чтв', 'птн', 'сбт'],
-    dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-    weekHeader: 'Не',
-    dateFormat: 'dd.mm.yy',
-    firstDay: 1,
-    isRTL: false,
-    showMonthAfterYear: false,
-    yearSuffix: ''
-};
-__WEBPACK_IMPORTED_MODULE_0_jquery___default.a.datepicker.setDefaults(__WEBPACK_IMPORTED_MODULE_0_jquery___default.a.datepicker.regional['ru']);
 
 __WEBPACK_IMPORTED_MODULE_0_jquery___default()('#datepicker').datepicker({
-    minDate: 0
+  minDate: 0
 });
 
 // $(".radio-time").checkboxradio();
