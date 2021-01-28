@@ -31,14 +31,18 @@ class RentController extends Controller
         return view('booking');
     }
 
-    public function addbooking(Request $request)
+    public function show_booking()
+    {
+        return view('booking');
+    }
+
+    public function add_booking(Request $request)
     {
         $rent = new Rent;
         $rent->date = $request->datepicker;
         $rent->time_begin = $request->timebegin;
         $rent->time_end = $request->timeend;
-        $rent->user_id = App\Rent::find(1);
-
+        $rent->user_id = auth()->id();
         $rent->save();
     }
 

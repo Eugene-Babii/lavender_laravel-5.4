@@ -13,4 +13,12 @@ class Rent extends Model
         return $this->belongsTo('App\User');
     }
 
+    public static function boot()
+    {
+        parent::boot();
+        self::creating(function ($model) {
+            $model->sum = 0;
+            $model->is_paid = false;
+        });
+    }
 }
