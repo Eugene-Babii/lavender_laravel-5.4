@@ -21,4 +21,8 @@ class Rent extends Model
             $model->is_paid = false;
         });
     }
+
+    public static function ispaid(){
+        return static::where('is_paid', 1)->get();
+    }
 }

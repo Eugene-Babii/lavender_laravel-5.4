@@ -18,7 +18,11 @@ use Illuminate\Support\Facades\Auth;
 //     return view('welcome');
 // });
 
-Route::get('/', 'RentController@index');
+// Route::get('/', 'RentController@index');
+
+Route::get('/', function () {
+    return view('main');
+});
 
 Route::get('/rules', function () {
     return view('rules');
@@ -32,15 +36,17 @@ Route::get('/contacts', function () {
     return view('contacts');
 });
 
-Route::get('/booking', function () {
+Route::get('/booking', function () {    
     return view('booking');
 })->middleware('auth');
 
-Route::post('/addbooking', 'RentController@addbooking');
+Route::post('/addbooking', 'RentController@add_booking');
 
-Route::get('/cabinet', function () {
-    return view('cabinet');
-})->middleware('auth');
+Route::get('/cabinet', 'RentController@cabinet');
+
+// Route::get('/cabinet', function () {
+//     return view('cabinet');
+// })->middleware('auth');
 
 Auth::routes();
 

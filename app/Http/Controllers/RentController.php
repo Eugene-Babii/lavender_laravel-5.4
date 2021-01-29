@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App;
 use App\Rent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-// use App\Http\Controllers\Rent;
-
-
+use Illuminate\Support\Facades\DB;
 
 class RentController extends Controller
 {
@@ -20,6 +19,10 @@ class RentController extends Controller
         $end_date = $end;
     }
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function index()
     {
@@ -31,9 +34,18 @@ class RentController extends Controller
         return view('booking');
     }
 
-    public function show_booking()
+    public function show_all()
     {
-        return view('booking');
+        // $rents = DB::table('rents')->get();
+        $rents = App\Rent::all();
+        return view('cabinet', compact('rents'));
+    }
+
+    public function show_paid()
+    {
+        // $rents = DB::table('rents')->get();
+        $rents = App\Rent::ispaid();
+        return view('cabinet', compact('rents'));
     }
 
     public function add_booking(Request $request)
@@ -44,10 +56,15 @@ class RentController extends Controller
         $rent->time_end = $request->timeend;
         $rent->user_id = auth()->id();
         $rent->save();
+
+        $rents = DB::table('rents')->where('user_id', '=', auth()->id())->get();
+// $rents = App\Rent::all();
+        return view('cabinet', compact('rents'));
     }
 
     public function cabinet()
     {
-        return view('cabinet');
+        $rents = DB::table('rents')->where('user_id', '=', auth()->id())->get();
+        return view('cabinet', compact('rents'));
     }
 }

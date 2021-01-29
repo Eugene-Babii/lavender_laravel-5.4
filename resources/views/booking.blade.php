@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row d-flex justify-content-center align-items-center">
         <div class="col-md-8">
-            <div class="card my-5">
+            <div class="card my-5" style="border: 2px solid #7e179a">
                 <div class="card-header bg-primary text-secondary text-center font-weight-bolder">{{ __('Выбор даты и времени') }}</div>
 
                 <div class="card-body">
@@ -77,9 +77,9 @@
                         </div>
 
                         <div class="d-flex justify-content-center mt-3">
-                            <!-- <a href="addbooking" class=""></a> -->
+                            <button type="submit" class="btn btn-secondary font-weight-bolder lobster text-primary">Бронировать</button>
                         </div>
-                        <button type="submit" class="btn btn-secondary font-weight-bolder lobster text-primary">Бронировать</button>
+
 
                     </form>
 
