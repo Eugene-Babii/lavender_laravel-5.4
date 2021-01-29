@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\DB;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +23,11 @@ use Illuminate\Support\Facades\Auth;
 // Route::get('/', 'RentController@index');
 
 Route::get('/', function () {
+    // dd(DB::table('rents')
+    //     ->join('users', 'rents.user_id', '=', 'users.id')
+    //     ->where('rents.user_id', '=', auth()->id())
+    //     ->orderBy('date', 'asc')
+    //     ->get());
     return view('main');
 });
 
@@ -36,7 +43,7 @@ Route::get('/contacts', function () {
     return view('contacts');
 });
 
-Route::get('/booking', function () {    
+Route::get('/booking', function () {
     return view('booking');
 })->middleware('auth');
 
@@ -44,7 +51,7 @@ Route::post('/addbooking', 'RentController@add_booking');
 
 Route::get('/cabinet', 'RentController@cabinet');
 
-Route::get('send', 'MailController@send');
+Route::get('/send', 'MailController@send');
 
 // Route::get('/cabinet', function () {
 //     return view('cabinet');

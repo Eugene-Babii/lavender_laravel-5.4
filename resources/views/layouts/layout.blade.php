@@ -76,7 +76,8 @@
 
     <script type="text/javascript">
         $('#datepicker').datepicker({
-            minDate: 0
+            minDate: 0,
+            dateFormat: 'yy-mm-dd'
         });
     </script>
 </body>

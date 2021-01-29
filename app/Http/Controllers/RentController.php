@@ -7,6 +7,8 @@ use App\Rent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+
 
 class RentController extends Controller
 {
@@ -48,6 +50,17 @@ class RentController extends Controller
         return view('cabinet', compact('rents'));
     }
 
+    public function sendMail()
+    {
+        // 1 - имя файла с текстом сообщения
+        // 2 - массив данных для представления (имя отправителя)
+        // 3 - функция с получатлем, темой и т.п.
+        Mail::send(['text' => 'mail'], ['name', 'Лаванда'], function ($message) {
+            $message->to('jie.babii@gmail.com', 'To admin')->subject('Бронирование лавандового поля');
+            $message->from('jie.babii@gmail.com', 'From admin');
+        });
+    }
+
     public function add_booking(Request $request)
     {
         $rent = new Rent;
@@ -58,13 +71,29 @@ class RentController extends Controller
         $rent->save();
 
         $rents = DB::table('rents')->where('user_id', '=', auth()->id())->get();
-// $rents = App\Rent::all();
+        // $rents = App\Rent::all();
+        $this->sendMail();
         return view('cabinet', compact('rents'));
     }
 
     public function cabinet()
     {
-        $rents = DB::table('rents')->where('user_id', '=', auth()->id())->get();
+        // $users = DB::table('users')
+        //     ->join('contacts', 'users.id', '=', 'contacts.user_id')
+        //     ->join('orders', 'users.id', '=', 'orders.user_id')
+        //     ->select('users.*', 'contacts.phone', 'orders.price')
+        //     ->get();
+
+
+        // $rents = DB::table('rents')
+        //     ->join('users', 'rents.user_id', '=', 'users.id')
+        //     ->where('rents.user_id', '=', auth()->id())
+        //     ->orderBy('date', 'asc')
+        //     ->get();
+
+
+        $rents = DB::table('rents')->where('user_id', '=', auth()->id())->orderBy('date', 'asc')->get();
+
         return view('cabinet', compact('rents'));
     }
 }
