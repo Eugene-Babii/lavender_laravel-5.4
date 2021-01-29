@@ -44,6 +44,8 @@ Route::post('/addbooking', 'RentController@add_booking');
 
 Route::get('/cabinet', 'RentController@cabinet');
 
+Route::get('send', 'MailController@send');
+
 // Route::get('/cabinet', function () {
 //     return view('cabinet');
 // })->middleware('auth');
