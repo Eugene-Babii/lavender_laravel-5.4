@@ -28,6 +28,7 @@ Route::get('/', function () {
     //     ->where('rents.user_id', '=', auth()->id())
     //     ->orderBy('date', 'asc')
     //     ->get());
+
     return view('main');
 });
 

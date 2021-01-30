@@ -26,8 +26,8 @@
             @foreach($rents as $rent)
             <tr>
                 <th scope="row">{{$loop->index+1}}</th>
-                <td>заглушка для имени</td>
-                <td>заглушка для почты</td>
+                <td>{{$rent->name}}</td>
+                <td>{{$rent->email}}</td>
                 <td>{{$rent->date}}</td>
                 <td>{{$rent->time_begin}}</td>
                 <td>{{$rent->time_end}}</td>

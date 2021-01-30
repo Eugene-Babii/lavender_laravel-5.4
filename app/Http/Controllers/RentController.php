@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 
 
 class RentController extends Controller
@@ -39,7 +40,11 @@ class RentController extends Controller
     public function show_all()
     {
         // $rents = DB::table('rents')->get();
-        $rents = App\Rent::all();
+        // $rents = App\Rent::all();
+        $rents = DB::table('rents')
+            ->join('users', 'rents.user_id', '=', 'users.id')
+            ->orderBy('date', 'asc')
+            ->get();
         return view('cabinet', compact('rents'));
     }
 
@@ -70,30 +75,50 @@ class RentController extends Controller
         $rent->user_id = auth()->id();
         $rent->save();
 
-        $rents = DB::table('rents')->where('user_id', '=', auth()->id())->get();
+        // $rents = DB::table('rents')->where('user_id', '=', auth()->id())->get();
         // $rents = App\Rent::all();
         $this->sendMail();
-        return view('cabinet', compact('rents'));
+        if (Auth::attempt(['email' => 'jie.babii@gmail.com', 'password' => '$2y$10$FhLufVgpkV1FVfXdDyNEpOdLpwY9Sy6QSy6BUKxDGiLo8.fwWh6Yi'])) {
+            $rents = DB::table('rents')
+                ->join('users', 'rents.user_id', '=', 'users.id')
+                ->orderBy('date', 'asc')
+                ->get();
+            // dd($rents);
+            return view('cabinet', compact('rents'));
+            // return redirect()->intended('dashboard');
+        } else {
+            $rents = DB::table('rents')
+                ->join('users', 'rents.user_id', '=', 'users.id')
+                ->where('rents.user_id', '=', auth()->id())
+                ->orderBy('date', 'asc')
+                ->get();
+
+            // $rents = DB::table('rents')->where('user_id', '=', auth()->id())->orderBy('date', 'asc')->get();
+            return view('cabinet', compact('rents'));
+        }
+        // return view('cabinet', compact('rents'));
     }
 
     public function cabinet()
     {
-        // $users = DB::table('users')
-        //     ->join('contacts', 'users.id', '=', 'contacts.user_id')
-        //     ->join('orders', 'users.id', '=', 'orders.user_id')
-        //     ->select('users.*', 'contacts.phone', 'orders.price')
-        //     ->get();
+        if (Auth::attempt(['email' => 'jie.babii@gmail.com', 'password' => '$2y$10$FhLufVgpkV1FVfXdDyNEpOdLpwY9Sy6QSy6BUKxDGiLo8.fwWh6Yi'])) {
+            $rents = DB::table('rents')
+                ->join('users', 'rents.user_id', '=', 'users.id')
+                ->orderBy('date', 'asc')
+                // ->select('rents.*', 'users.name', 'users.email')
+                ->get();
+            // dd($rents);
+            return view('cabinet', compact('rents'));
+            // return redirect()->intended('dashboard');
+        } else {
+            $rents = DB::table('rents')
+                ->join('users', 'rents.user_id', '=', 'users.id')
+                ->where('rents.user_id', '=', auth()->id())
+                ->orderBy('date', 'asc')
+                ->get();
 
-
-        // $rents = DB::table('rents')
-        //     ->join('users', 'rents.user_id', '=', 'users.id')
-        //     ->where('rents.user_id', '=', auth()->id())
-        //     ->orderBy('date', 'asc')
-        //     ->get();
-
-
-        $rents = DB::table('rents')->where('user_id', '=', auth()->id())->orderBy('date', 'asc')->get();
-
-        return view('cabinet', compact('rents'));
+            // $rents = DB::table('rents')->where('user_id', '=', auth()->id())->orderBy('date', 'asc')->get();
+            return view('cabinet', compact('rents'));
+        }
     }
 }
