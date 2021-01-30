@@ -11,6 +11,7 @@ class Rent extends Model
     public function user()
     {
         return $this->belongsTo('App\User');
+        // return $this->belongsTo(User::class, 'user_id');
     }
 
     public static function boot()
@@ -22,7 +23,8 @@ class Rent extends Model
         });
     }
 
-    public static function ispaid(){
+    public static function ispaid()
+    {
         return static::where('is_paid', 1)->get();
     }
 }
