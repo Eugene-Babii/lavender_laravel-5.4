@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+
     <div class="row d-flex justify-content-center align-items-center">
         <div class="col-md-8">
             <div class="card my-5" style="border: 2px solid #7e179a">
@@ -20,16 +21,19 @@
 
                         <div class="row ">
 
-                            <div class="form-group col-md-12 ui-widget d-flex justify-content-center align-items-center">
+                            <div class="form-group col-md-12 ui-widget d-flex justify-content-center align-items-center ">
                                 <label for="datepicker" class="mb-0">Дата: </label>
-                                <input type="text" id="datepicker" name="datepicker" />
+                                <input type="text" id="datepicker" name="datepicker" class="custom-input" />
                             </div>
 
                             <div class="form-group col-md-12 d-flex justify-content-center align-items-center">
-                                <fieldset>
+                                <fieldset style="display: block">
                                     <label for="timebegin">Время начала:</label>
-                                    <select name="timebegin" id="timebegin">
-                                        <option>04:00</option>
+                                    <select name="timebegin" id="timebegin" class="custom-select" >
+                                        @foreach ($reserved as $data)
+                                            <option value="{{ $data['time_begin']}}">{{ $data['time_begin']}}</option>  
+                                        @endforeach
+                                        {{-- <option>04:00</option>
                                         <option>05:00</option>
                                         <option disabled>06:00</option>
                                         <option>07:00</option>
@@ -45,15 +49,43 @@
                                         <option>17:00</option>
                                         <option>18:00</option>
                                         <option>19:00</option>
+                                        <option>20:00</option> --}}
+                                    </select>
+                                </fieldset>
+                                <fieldset style="display: block">
+                                    <label for="timeend">Время окончания:</label>
+                                    <select name="timeend" id="timeend" class="custom-select">
+                                        @foreach ($reserved as $data)
+                                            <option value="{{ $data['time_end']}}">{{ $data['time_end']}}</option>  
+                                        @endforeach
+                                        {{-- <option>05:00</option>
+                                        <option>6:00</option>
+                                        <option>07:00</option>
+                                        <option>08:00</option>
+                                        <option>09:00</option>
+                                        <option>10:00</option>
+                                        <option>11:00</option>
+                                        <option>12:00</option>
+                                        <option>13:00</option>
+                                        <option>14:00</option>
+                                        <option>15:00</option>
+                                        <option>16:00</option>
+                                        <option>17:00</option>
+                                        <option>18:00</option>
+                                        <option>19:00</option>
                                         <option>20:00</option>
+                                        <option>21:00</option> --}}
                                     </select>
                                 </fieldset>
                             </div>
 
-                            <div class="form-group col-md-12 d-flex justify-content-center align-items-center">
+                            {{-- <div class="form-group col-md-12 d-flex justify-content-center align-items-center">
                                 <fieldset>
                                     <label for="timeend">Время окончания:</label>
-                                    <select name="timeend" id="timeend">
+                                    <select name="timeend" id="timeend" class="custom-select">
+                                        @foreach ($rents as $data)
+                                            <option value="{{ $data['time_end']}}">{{ $data['time_end']}}</option>  
+                                        @endforeach
                                         <option>05:00</option>
                                         <option>6:00</option>
                                         <option>07:00</option>
@@ -73,7 +105,7 @@
                                         <option>21:00</option>
                                     </select>
                                 </fieldset>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <div class="d-flex justify-content-center mt-3">

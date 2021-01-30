@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\DB;
 
 // Route::get('/', 'RentController@index');
 
+
+
 Route::get('/', function () {
     // dd(DB::table('rents')
     //     ->join('users', 'rents.user_id', '=', 'users.id')
@@ -52,6 +54,11 @@ Route::post('/addbooking', 'RentController@add_booking');
 Route::get('/cabinet', 'RentController@cabinet');
 
 Route::get('/send', 'MailController@send');
+
+// Route::get('test','RentController@test');
+Route::get('test','RentController@allData')->name('reserved');
+
+Route::get('booking','RentController@reserved');
 
 // Route::get('/cabinet', function () {
 //     return view('cabinet');

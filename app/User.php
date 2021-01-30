@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+// use App\User;
+use App\Rent;
 
 class User extends Authenticatable
 {
@@ -29,6 +31,6 @@ class User extends Authenticatable
 
     public function rents()
     {
-        return $this->hasMany('App\Rent');
+        return $this->hasMany('App\Rent', 'user_id', 'id');
     }
 }

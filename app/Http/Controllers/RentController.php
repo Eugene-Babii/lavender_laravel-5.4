@@ -6,6 +6,7 @@ use App;
 use App\Rent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
@@ -29,6 +30,15 @@ class RentController extends Controller
     public function index()
     {
         return view('main');
+    }
+    public function reserved()
+    {
+        $r = Rent::orderBy('created_at','desc')->get();
+        //$rents = DB::table('rents')->orderBy('date', 'asc')->get();
+        return view('booking', [
+            'reserved'=>$r
+        ]);
+
     }
 
     public function booking()
@@ -72,9 +82,20 @@ class RentController extends Controller
 
         $rents = DB::table('rents')->where('user_id', '=', auth()->id())->get();
         // $rents = App\Rent::all();
-        $this->sendMail();
-        return view('cabinet', compact('rents'));
+        // $this->sendMail();
+
+        $reserved = Rent::orderBy('created_at','desc')->get();//'Jeffery Way';
+        
+        // return view('about')->with('name',$name);
+        return view('cabinet',[
+            'rents'=>$reserved
+        ]);
+
+        // return view('cabinet', compact('rents'));
     }
+
+
+    
 
     public function cabinet()
     {
@@ -92,8 +113,85 @@ class RentController extends Controller
         //     ->get();
 
 
-        $rents = DB::table('rents')->where('user_id', '=', auth()->id())->orderBy('date', 'asc')->get();
+        // $rents = DB::table('rents')->where('user_id', '=', auth()->id())->orderBy('date', 'asc')->get();
+        $rents = Rent::orderBy('created_at','desc')->get();
+        $users = User::orderBy('created_at','desc')->get();
+        // return view('cabinet', compact('rents'));
 
-        return view('cabinet', compact('rents'));
+        return view('cabinet',[
+            'users'=>$users,
+            'rents'=>$rents,
+            // 'user' => Rent::find($id);
+        ]);
     }
+
+
+///----------------------------------
+
+    public function test()
+    {
+        $rent = Rent::orderBy('created_at','desc')->get();//'Jeffery Way';
+        
+        return view('test',[
+            'rents'=>$rent
+        ]);
+    }
+
+    public function allData(Request $request)
+    {
+
+
+        $users = User::orderBy('created_at','desc')->get();//'Jeffery Way';
+        // $users = DB::table('users')->get();
+
+        $rent = Rent::orderBy('created_at','desc')->get();
+
+        $rent = DB::table('rents')->where('user_id', '=', auth()->id())->get();
+
+        $start = $request->start_date; 
+        $end = $request->end_date; 
+        DB::table('booked')->where(function ($query) use ($start, $end) {
+
+            $query->where(function ($q) use ($start, $end) {
+                $q->where('start', '>=', $start)
+                ->where('start', '<', $end);
+
+            })->orWhere(function ($q) use ($start, $end) {
+                $q->where('start', '<=', $start)
+                ->where('end', '>', $end);
+
+            })->orWhere(function ($q) use ($start, $end) {
+                $q->where('end', '>', $start)
+                ->where('end', '<=', $end);
+
+            })->orWhere(function ($q) use ($start, $end) {
+                $q->where('start', '>=', $start)
+                ->where('end', '<=', $end);
+            });
+
+        })->count();
+
+        // foreach ($users as $user)
+        // {
+        //     var_dump($user->email);
+        // }
+
+        return view('test',[
+            'users'=>$users,
+            'rents'=>$rent
+        ]);
+    }
+
+    // public function show(Rent $rec)
+    // {
+    //     $users = User::orderBy('created_at','desc')->get();//'Jeffery Way';
+    //     // $users = DB::table('users')->get();
+
+    //     $rent = Rent::orderBy('created_at','desc')->get();
+    //     return view('cabinet',[
+    //         'users'=>$users,
+    //         'rents'=>$rent
+    //     ]);
+    // }
+
 }

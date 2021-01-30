@@ -21,6 +21,9 @@
                     <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase text-expanded" href="contacts">Контакты</a>
                     </li>
+                    <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase text-expanded" href="{{route('reserved')}}">Cообщения</a>
+                    </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
