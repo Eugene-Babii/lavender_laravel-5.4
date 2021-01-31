@@ -3,11 +3,6 @@
 @section('content')
 <div class="bg-primary">
     <h1 class="text-center font-weight-bold text-secondary py-3">Мои бронирования</h1>
-    <!-- <ul>
-        @foreach ($rents as $rent)
-        <li>{{ date("d.m.Y",strtotime($rent->date))}}</li>
-        @endforeach
-    </ul> -->
 
     <table class="table table-striped">
         <thead class="secondary">
@@ -34,15 +29,11 @@
                 <td>{{$rent->is_paid}}</td>
                 <td>{{$rent->sum}}</td>
                 <td>
-
                     <button type="submit" class="btn btn-danger btn-sm delete-btn">
-                        <a href='delete/{{$rent->rent_id}}'>
-                            <!-- <i class="fas fa-trash"></i> -->
+                        <a href='delete/{{$rent->rent_id}}'>                            
                             Удалить
                         </a>
-
                     </button>
-
                 </td>
 
             </tr>

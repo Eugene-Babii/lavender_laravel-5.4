@@ -39,8 +39,6 @@ class RentController extends Controller
 
     public function show_all()
     {
-        // $rents = DB::table('rents')->get();
-        // $rents = App\Rent::all();
         $rents = DB::table('rents')
             ->join('users', 'rents.user_id', '=', 'users.id')
             ->orderBy('date', 'asc')
@@ -50,7 +48,6 @@ class RentController extends Controller
 
     public function show_paid()
     {
-        // $rents = DB::table('rents')->get();
         $rents = App\Rent::ispaid();
         return view('cabinet', compact('rents'));
     }
@@ -75,41 +72,28 @@ class RentController extends Controller
         $rent->user_id = auth()->id();
         $rent->save();
 
-        // $rents = DB::table('rents')->where('user_id', '=', auth()->id())->get();
-        // $rents = App\Rent::all();
         $this->sendMail();
         if ((auth()->id()) == 1) {
             $rents = DB::table('rents')
                 ->join('users', 'rents.user_id', '=', 'users.id')
                 ->orderBy('date', 'asc')
                 ->get();
-            // dd($rents);
             return view('cabinet', compact('rents'));
-            // return redirect()->intended('dashboard');
         } else {
             $rents = DB::table('rents')
                 ->join('users', 'rents.user_id', '=', 'users.id')
                 ->where('rents.user_id', '=', auth()->id())
                 ->orderBy('date', 'asc')
                 ->get();
-
-            // $rents = DB::table('rents')->where('user_id', '=', auth()->id())->orderBy('date', 'asc')->get();
             return view('cabinet', compact('rents'));
         }
-        // return view('cabinet', compact('rents'));
     }
 
     public function destroy($id)
     {
-        // $rent = App\Rent::find($id);
-        $rent = App\Rent::where('rent_id', $id)->delete();
-        // dd($id);        
-        // $rent->delete();
-
+        App\Rent::where('rent_id', $id)->delete();
         return redirect()->back()->withSuccess('<Бронирование успешно удалено!');
     }
-
-
 
     public function cabinet()
     {
@@ -119,9 +103,7 @@ class RentController extends Controller
                 ->orderBy('date', 'asc')
                 ->select('rents.*', 'users.name', 'users.email')
                 ->get();
-            // dd($rents);
             return view('cabinet', compact('rents'));
-            // return redirect()->intended('dashboard');
         } else {
             $rents = DB::table('rents')
                 ->join('users', 'rents.user_id', '=', 'users.id')
@@ -129,8 +111,6 @@ class RentController extends Controller
                 ->select('rents.*', 'users.name', 'users.email')
                 ->orderBy('date', 'asc')
                 ->get();
-
-            // $rents = DB::table('rents')->where('user_id', '=', auth()->id())->orderBy('date', 'asc')->get();
             return view('cabinet', compact('rents'));
         }
     }

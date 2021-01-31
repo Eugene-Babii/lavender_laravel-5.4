@@ -77,7 +77,11 @@
     <script type="text/javascript">
         $('#datepicker').datepicker({
             minDate: 0,
-            dateFormat: 'yy-mm-dd'
+            dateFormat: 'yy-mm-dd',
+            showOn: "button",
+            buttonImage: "../images/cal_24.gif",
+            buttonImageOnly: true,
+            buttonText: "Select date"
         });
     </script>
 </body>
