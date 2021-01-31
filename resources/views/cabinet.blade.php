@@ -33,6 +33,18 @@
                 <td>{{$rent->time_end}}</td>
                 <td>{{$rent->is_paid}}</td>
                 <td>{{$rent->sum}}</td>
+                <td>
+
+                    <button type="submit" class="btn btn-danger btn-sm delete-btn">
+                        <a href='delete/{{$rent->rent_id}}'>
+                            <!-- <i class="fas fa-trash"></i> -->
+                            Удалить
+                        </a>
+
+                    </button>
+
+                </td>
+
             </tr>
             @endforeach
         </tbody>

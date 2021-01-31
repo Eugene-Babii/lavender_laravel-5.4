@@ -29,6 +29,8 @@ Route::get('/', function () {
     //     ->orderBy('date', 'asc')
     //     ->get());
 
+    // dd(auth()->id());
+
     return view('main');
 });
 
@@ -49,6 +51,18 @@ Route::get('/booking', function () {
 })->middleware('auth');
 
 Route::post('/addbooking', 'RentController@add_booking');
+
+Route::get('/delete/{id}', 'RentController@destroy');
+
+// Route::get('/delete/{rent}', function ($id) {
+//     $rent = DB::table('rents')->find($id);
+//     // dd($rent);
+//     $rent->delete();
+
+//     return redirect()->back()->withSuccess('Бронирование успешно удалено!');
+//     // return view('booking');
+// })->middleware('auth');
+
 
 Route::get('/cabinet', 'RentController@cabinet');
 

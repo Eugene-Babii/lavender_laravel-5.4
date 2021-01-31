@@ -78,7 +78,7 @@ class RentController extends Controller
         // $rents = DB::table('rents')->where('user_id', '=', auth()->id())->get();
         // $rents = App\Rent::all();
         $this->sendMail();
-        if (Auth::attempt(['email' => 'jie.babii@gmail.com', 'password' => '$2y$10$FhLufVgpkV1FVfXdDyNEpOdLpwY9Sy6QSy6BUKxDGiLo8.fwWh6Yi'])) {
+        if ((auth()->id()) == 1) {
             $rents = DB::table('rents')
                 ->join('users', 'rents.user_id', '=', 'users.id')
                 ->orderBy('date', 'asc')
@@ -99,13 +99,25 @@ class RentController extends Controller
         // return view('cabinet', compact('rents'));
     }
 
+    public function destroy($id)
+    {
+        // $rent = App\Rent::find($id);
+        $rent = App\Rent::where('rent_id', $id)->delete();
+        // dd($id);        
+        // $rent->delete();
+
+        return redirect()->back()->withSuccess('<Бронирование успешно удалено!');
+    }
+
+
+
     public function cabinet()
     {
-        if (Auth::attempt(['email' => 'jie.babii@gmail.com', 'password' => '$2y$10$FhLufVgpkV1FVfXdDyNEpOdLpwY9Sy6QSy6BUKxDGiLo8.fwWh6Yi'])) {
+        if ((auth()->id()) == 1) {
             $rents = DB::table('rents')
                 ->join('users', 'rents.user_id', '=', 'users.id')
                 ->orderBy('date', 'asc')
-                // ->select('rents.*', 'users.name', 'users.email')
+                ->select('rents.*', 'users.name', 'users.email')
                 ->get();
             // dd($rents);
             return view('cabinet', compact('rents'));
@@ -114,6 +126,7 @@ class RentController extends Controller
             $rents = DB::table('rents')
                 ->join('users', 'rents.user_id', '=', 'users.id')
                 ->where('rents.user_id', '=', auth()->id())
+                ->select('rents.*', 'users.name', 'users.email')
                 ->orderBy('date', 'asc')
                 ->get();
 
