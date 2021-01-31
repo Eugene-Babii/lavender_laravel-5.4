@@ -1,12 +1,12 @@
 @component('mail::message')
-# Introduction
+# Лаванда в Запорожье
 
-The body of your message.
+Новое бронирование лавандового поля.
 
-@component('mail::button', ['url' => ''])
-Button Text
+@component('mail::button', ['url' => 'lavender.pp.ua/cabinet'])
+Перейти в кабинет
 @endcomponent
 
-Thanks,<br>
-{{ config('app.name') }}
+Сайт, lavender.pp.ua<br>
+<!-- {{ config('app.name') }} -->
 @endcomponent

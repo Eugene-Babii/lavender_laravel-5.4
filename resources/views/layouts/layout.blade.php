@@ -105,6 +105,7 @@
                 }
             }
             request.send();
+        }
     </script>
 
 </body>

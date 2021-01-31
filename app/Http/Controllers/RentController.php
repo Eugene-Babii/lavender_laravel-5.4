@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
+use App\Mail\NewMail;
+
 
 
 class RentController extends Controller
@@ -57,10 +59,15 @@ class RentController extends Controller
         // 1 - имя файла с текстом сообщения
         // 2 - массив данных для представления (имя отправителя)
         // 3 - функция с получатлем, темой и т.п.
+
+        //Старая версия
         Mail::send(['text' => 'mail'], ['name', 'Лаванда'], function ($message) {
             $message->to('jie.babii@gmail.com', 'To admin')->subject('Бронирование лавандового поля');
             $message->from('jie.babii@gmail.com', 'From admin');
         });
+
+        // Новая версия       
+        Mail::send(new newMail());
     }
 
     public function add_booking(Request $request)

@@ -1,7 +1,7 @@
 <tr>
     <td class="header">
-        <a href="{{ $url }}">
-            {{ $slot }}
+        <a href="lavender.pp.ua/cabinet">
+            Лаванда в Запорожье
         </a>
     </td>
 </tr>

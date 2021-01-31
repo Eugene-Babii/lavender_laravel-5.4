@@ -1,6 +1,7 @@
 /* Base */
 
-body, body *:not(html):not(style):not(br):not(tr):not(code) {
+body,
+body *:not(html):not(style):not(br):not(tr):not(code) {
     font-family: Avenir, Helvetica, sans-serif;
     box-sizing: border-box;
 }
@@ -82,7 +83,8 @@ img {
 /* Layout */
 
 .wrapper {
-    background-color: #f5f8fa;
+    background-color: #7e179a;
+    color: #70caef;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -108,7 +110,7 @@ img {
 }
 
 .header a {
-    color: #bbbfc3;
+    color: #70caef;
     font-size: 19px;
     font-weight: bold;
     text-decoration: none;
