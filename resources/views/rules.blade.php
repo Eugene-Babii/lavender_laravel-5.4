@@ -14,41 +14,28 @@
                         <li data-target="#carouselExampleIndicators" data-slide-to="4" class="bg-secondary"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="5" class="bg-secondary"></li>
                         <li data-target="#carouselExampleIndicators" data-slide-to="6" class="bg-secondary"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="7" class="bg-secondary"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="8" class="bg-secondary"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="9" class="bg-secondary"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="10" class="bg-secondary"></li>
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="images/rules/title.jpg" class="d-block w-100" alt="title">
+                            <img src="images/rules/title.png" class="d-block w-100" alt="title">
                         </div>
                         <div class="carousel-item">
-                            <img src="images/rules/rule1.jpg" class="d-block w-100" alt="rule1">
+                            <img src="images/rules/rule1.png" class="d-block w-100" alt="rule1">
                         </div>
                         <div class="carousel-item">
-                            <img src="images/rules/rule2.jpg" class="d-block w-100" alt="rule2">
+                            <img src="images/rules/rule2.png" class="d-block w-100" alt="rule2">
                         </div>
                         <div class="carousel-item">
-                            <img src="images/rules/rule3.jpg" class="d-block w-100" alt="rule3">
+                            <img src="images/rules/rule3.png" class="d-block w-100" alt="rule3">
                         </div>
                         <div class="carousel-item">
-                            <img src="images/rules/rule4.jpg" class="d-block w-100" alt="rule4">
+                            <img src="images/rules/rule4.png" class="d-block w-100" alt="rule4">
                         </div>
                         <div class="carousel-item">
-                            <img src="images/rules/rule5.jpg" class="d-block w-100" alt="rule5">
+                            <img src="images/rules/rule5.png" class="d-block w-100" alt="rule5">
                         </div>
                         <div class="carousel-item">
-                            <img src="images/rules/rule6.jpg" class="d-block w-100" alt="rule6">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="images/rules/rule7.jpg" class="d-block w-100" alt="rule7">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="images/rules/rule8.jpg" class="d-block w-100" alt="rule8">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="images/rules/end.jpg" class="d-block w-100" alt="end">
+                            <img src="images/rules/be_happy.png" class="d-block w-100" alt="end">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

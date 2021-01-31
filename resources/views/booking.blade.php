@@ -22,7 +22,7 @@
 
                             <div class="form-group col-md-12 ui-widget d-flex justify-content-center align-items-center">
                                 <label for="datepicker" class="mb-0">Дата: </label>
-                                <input type="text" id="datepicker" name="datepicker" />
+                                <input type="text" id="datepicker" name="datepicker" onchange="chooseDate()" />
                             </div>
 
                             <div class="form-group col-md-12 d-flex justify-content-center align-items-center">
@@ -80,8 +80,36 @@
                             <button type="submit" class="btn btn-secondary font-weight-bolder lobster text-primary">Бронировать</button>
                         </div>
 
-
                     </form>
+
+
+                    <div style="border:5px solid red">
+                        <h2>The XMLHttpRequest Object</h2>
+
+                        <h3>Start typing a name in the input field below:</h3>
+
+                        <p>Suggestions: <span id="txtHint"></span></p>
+
+                        <p>First name: <input type="text" id="txt1" onkeyup="showHint(this.value)"></p>
+                    </div>
+
+                    <script>
+                        function showHint(str) {
+                            var xhttp;
+                            if (str.length == 0) {
+                                document.getElementById("txtHint").innerHTML = "";
+                                return;
+                            }
+                            xhttp = new XMLHttpRequest();
+                            xhttp.onreadystatechange = function() {
+                                if (this.readyState == 4 && this.status == 200) {
+                                    document.getElementById("txtHint").innerHTML = this.responseText;
+                                }
+                            };
+                            xhttp.open("GET", "gethint.php?q=" + str, true);
+                            xhttp.send();
+                        }
+                    </script>
 
                     <!-- <div class="col-md-12 col-lg-6 d-flex justify-content-center">
                             <div id="datepicker"></div>

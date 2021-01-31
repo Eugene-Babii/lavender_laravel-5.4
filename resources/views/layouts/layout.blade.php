@@ -84,6 +84,29 @@
             buttonText: "Select date"
         });
     </script>
+
+    <script type="text/javascript">
+        function chooseDate() {
+            var choosenDate = $("#datepicker").datepicker("getDate");
+            let request;
+            if (window.XMLHttpRequest) {
+                request = new XMLHttpRequest();
+            } else {
+                request = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            request.open("GET", "checktime.php?date=" + choosenDate, true);
+
+            request.onreadystatechange = function() {
+                console.log("readyState = " + request.readyState);
+                if (request.readyState === 4 && request.status == 200) {
+                    alert(request.response);
+                    document.getElementById("demo").innerHTML = this.responseText;
+                }
+            }
+            request.send();
+    </script>
+
 </body>
 
 </html>
